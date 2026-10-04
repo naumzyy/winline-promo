@@ -1,0 +1,410 @@
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Winline — ДЕРЖИ ДЕСЯТЬ! Фрибет 10 000 ₽ всем новым игрокам</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --orange: #FF5500;
+                --orange-hover: #E04B00;
+                --black: #0F1015;
+                --card-bg: #1A1C23;
+                --card-border: #2B2E3B;
+                --blue: #1877F2;
+                --text-gray: #A0A5B5;
+                --white: #FFFFFF;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            body {
+                background-color: var(--black);
+                color: var(--white);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+
+            /* Container */
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            /* Header */
+            header {
+                padding: 20px 0;
+                background: rgba(15, 16, 21, 0.9);
+                backdrop-filter: blur(10px);
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 100;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .header-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 900;
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
+            .logo-badge {
+                background: var(--orange);
+                color: var(--white);
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 14px;
+                font-weight: 800;
+            }
+
+            .btn {
+                display: inline-block;
+                background: linear-gradient(135deg, #FF6B00 0%, #FF3D00 100%);
+                color: var(--white);
+                padding: 16px 36px;
+                border-radius: 12px;
+                font-weight: 800;
+                font-size: 18px;
+                text-transform: uppercase;
+                text-decoration: none;
+                box-shadow: 0 10px 25px rgba(255, 85, 0, 0.4);
+                transition: all 0.3s ease;
+                cursor: pointer;
+                border: none;
+                text-align: center;
+            }
+
+            .btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 15px 30px rgba(255, 85, 0, 0.6);
+                background: linear-gradient(135deg, #FF7B1A 0%, #FF4D1A 100%);
+            }
+
+            /* Hero Section */
+            .hero {
+                padding-top: 140px;
+                padding-bottom: 80px;
+                background: radial-gradient(circle at 70% 30%, rgba(255, 85, 0, 0.15) 0%, transparent 60%);
+                position: relative;
+            }
+
+            .hero-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: center;
+            }
+
+            .hero-subtitle {
+                display: inline-block;
+                background: var(--blue);
+                color: var(--white);
+                padding: 6px 16px;
+                border-radius: 6px;
+                font-weight: 800;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 20px;
+            }
+
+            .hero-title {
+                font-size: 56px;
+                font-weight: 900;
+                line-height: 1.1;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+
+            .hero-title span {
+                color: var(--orange);
+                display: block;
+            }
+
+            .hero-desc {
+                font-size: 18px;
+                color: var(--text-gray);
+                margin-bottom: 30px;
+            }
+
+            .hero-image-wrapper {
+                position: relative;
+                border-radius: 24px;
+                overflow: hidden;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                border: 1px solid var(--card-border);
+            }
+
+            .hero-image-wrapper img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Features Section */
+            .features {
+                padding: 80px 0;
+                background: #14151B;
+            }
+
+            .section-title {
+                text-align: center;
+                font-size: 36px;
+                font-weight: 900;
+                text-transform: uppercase;
+                margin-bottom: 50px;
+            }
+
+            .section-title span {
+                color: var(--orange);
+            }
+
+            .cards-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+
+            .card {
+                background: var(--card-bg);
+                border: 1px solid var(--card-border);
+                padding: 35px 25px;
+                border-radius: 20px;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            .card:hover {
+                border-color: var(--orange);
+                transform: translateY(-5px);
+            }
+
+            .card-number {
+                font-size: 48px;
+                font-weight: 900;
+                color: var(--orange);
+                opacity: 0.8;
+                margin-bottom: 15px;
+            }
+
+            .card-title {
+                font-size: 20px;
+                font-weight: 800;
+                margin-bottom: 12px;
+            }
+
+            .card-desc {
+                color: var(--text-gray);
+                font-size: 15px;
+            }
+
+            /* Promo Banner Section */
+            .promo-banner {
+                padding: 80px 0;
+            }
+
+            .banner-card {
+                background: linear-gradient(135deg, #1F222E 0%, #14151B 100%);
+                border: 2px solid var(--orange);
+                border-radius: 24px;
+                padding: 50px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: center;
+            }
+
+            .banner-img img {
+                width: 100%;
+                border-radius: 16px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+            }
+
+            .banner-text h3 {
+                font-size: 38px;
+                font-weight: 900;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+                line-height: 1.2;
+            }
+
+            .banner-text p {
+                color: var(--text-gray);
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+
+            /* FAQ Section */
+            .faq {
+                padding: 80px 0;
+                background: #14151B;
+            }
+
+            .faq-item {
+                background: var(--card-bg);
+                border: 1px solid var(--card-border);
+                border-radius: 16px;
+                padding: 25px 30px;
+                margin-bottom: 20px;
+            }
+
+            .faq-question {
+                font-size: 18px;
+                font-weight: 800;
+                margin-bottom: 10px;
+                color: var(--white);
+            }
+
+            .faq-answer {
+                color: var(--text-gray);
+                font-size: 15px;
+            }
+
+            /* Footer */
+            footer {
+                padding: 40px 0;
+                background: var(--black);
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                text-align: center;
+                color: var(--text-gray);
+                font-size: 14px;
+            }
+
+            /* Responsive */
+            @media (max-width: 992px) {
+                .hero-grid, .banner-card {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+                }
+
+                .cards-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .hero-title {
+                    font-size: 40px;
+                }
+
+                .banner-text h3 {
+                    font-size: 28px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- Header -->
+        <header>
+            <div class="container header-content">
+                <div class="logo">
+                    WINLINE <span class="logo-badge">BONUS</span>
+                </div>
+                <a href="#promo" class="btn" style="padding: 10px 24px; font-size: 14px;">Забрать бонус</a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <div class="hero-subtitle">Фрибет всем новым игрокам</div>
+                        <h1 class="hero-title">ДЕРЖИ ДЕСЯТЬ! <span>10 000 ₽</span></h1>
+                        <p class="hero-desc">Регистрируйся в Winline, получай гарантированный фрибет до 10 000 рублей без риска и делай свои первые победные ставки уже сегодня!</p>
+                        <a href="#promo" class="btn">Получить фрибет 10 000 ₽</a>
+                    </div>
+                    <div class="hero-image-wrapper">
+                        <img src="images/banner_horizontal.png" alt="Winline Держи Десять">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Как получить <span>бонус</span>?</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-number">01</div>
+                        <div class="card-title">Быстрая регистрация</div>
+                        <div class="card-desc">Зарегистрируйтесь на официальном сайте Winline или в приложении за 2 минуты.</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-number">02</div>
+                        <div class="card-title">Заберите фрибет</div>
+                        <div class="card-desc">Получите гарантированный фрибет до 10 000 ₽ сразу после идентификации.</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-number">03</div>
+                        <div class="card-title">Заберите выигрыш</div>
+                        <div class="card-desc">Делайте ставку на любое спортивное событие. Чистый выигрыш — ваш!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promo Banner Section -->
+        <section class="promo-banner" id="promo">
+            <div class="container">
+                <div class="banner-card">
+                    <div class="banner-img">
+                        <img src="images/banner_vertical.png" alt="Фишка Winline 10000">
+                    </div>
+                    <div class="banner-text">
+                        <h3>Испытай удачу с фрибетом Winline</h3>
+                        <p>Winline дает возможность каждому новому пользователю начать путь в мире ставок с бесплатного фрибета. Трансляции матчей в HD-качестве, быстрые выплаты и лучшие коэффициенты на все виды спорта.</p>
+                        <!-- В БУДУЩЕМ СЮДА ВСТАВИТСЯ РЕФЕРАЛЬНАЯ ССЫЛКА ИЛИ ПРОМОКОД -->
+                        <a href="#" class="btn" onclick="alert('Скоро здесь появится ваша реферальная ссылка!'); return false;">Зарегистрироваться с бонусом</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+            <div class="container">
+                <h2 class="section-title">Часто задаваемые <span>вопросы</span></h2>
+                <div class="faq-item">
+                    <div class="faq-question">Что такое фрибет от Winline?</div>
+                    <div class="faq-answer">Фрибет — это бесплатная ставка, которую букмекер предоставляет новому игроку. В случае победы ставки вы получаете чистую прибыль на свой счет.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Нужно ли вносить личные деньги?</div>
+                    <div class="faq-answer">Фрибет начисляется всем новым игрокам. Подробные условия отыгрыша и использования можно узнать при регистрации.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Как вывести выигрыш с фрибета?</div>
+                    <div class="faq-answer">Выигрыш зачисляется на ваш основной баланс и доступен к выводу на банковскую карту или электронный кошелек сразу после выполнения условий.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>© 2026 Winline Promo Page. Информация носит ознакомительный характер. Букмекерская контора Winline работает по лицензии ФНС РФ.</p>
+            </div>
+        </footer>
+
+    </body>
+    </html>
